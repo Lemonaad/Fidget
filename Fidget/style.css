@@ -1,0 +1,188 @@
+* {
+  border: 0 ;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+
+
+  overflowX: hidden;
+  overscroll-behavior: none;
+}
+
+
+.arrow {
+  position:absolute;
+  background-color: rgba(0,0,0,0);
+}
+.right {
+  right: 5px;
+}
+.left {
+  left: 5px;
+}
+.skill {
+  top: 300px;
+}
+.new {
+  top: 520px;
+}
+
+.coinInput{
+  position: absolute;
+  left: 55px;
+  top: 9px;
+  width: 40px;
+}
+
+
+
+.export {
+  position:absolute;
+  left: 0px;
+  bottom: 0px;
+}
+.play {
+  position: absolute;
+  left: 50px;
+  bottom: 0px;
+}
+.exportText {
+  position: absolute;
+  top: 0px;
+  left: 100px;
+}
+.devMode {
+  font-family: "Arial";
+  font-size: 20px;
+  color: #cccccc;
+  background-color: #696969;
+  position: absolute;
+  top: 455px;
+  left: 40px;
+}
+
+.sb {
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 5px;
+  display: block;
+  transition: 0.3s;
+  position: absolute;
+  top: 0px;
+  color:white;
+  border: 2px solid;
+  border-color: #696969;
+}
+
+.a {
+  background-color: #d81b60;
+  left: 0px;
+}
+.b {
+  background-color: #039ae5;
+  left: 25%;
+}
+.c {
+  background-color: #ffc928;
+  /*background-color: #9e9e9e;*/
+  left: 50%;
+}
+.d {
+  background-color: #00e677;
+  left: 75%;
+}
+.e {
+  background-color: #d400f9;
+  right: 0%;
+}
+.a:hover {
+  background-color: #e45f90;
+}
+.b:hover {
+  background-color: #4fb8ed;
+}
+.c:hover {
+  background-color: #ffd968;
+  /*background-color: #bdbdbd;*/
+}
+.d:hover {
+  background-color: #4deda0;
+}
+.e:hover {
+  background-color:  #e14dfb;
+}
+.sb.active {
+  border-width: 5px;
+  border-color: #696969/*3d3e45*/;
+}
+
+::-webkit-scrollbar{
+  width: 0px;
+}
+
+
+.switch {
+  display: block;
+  width: 60px;
+  height: 34px;
+  font-family: "audiowide","arial";
+}
+.swa {
+  position: absolute;
+  left: 75%;
+  top: 100px;
+}
+.swb {
+  position: absolute;
+  left: 75%;
+  top: 164px;
+}
+.swc {
+  position: absolute;
+  left: 75%;
+  top: 228px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch p {
+  position: absolute;
+  right: 70px;
+  font-size: 30px;
+  white-space: nowrap;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cccccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #ffc928;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}

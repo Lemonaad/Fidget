@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <title id='title'> Platformer Engine 0.9.4.2 </title>
+    <link href='style.css' rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" type="image/png" href="assets/skins/Player1.png" />
+    <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+  </head>
+  <body>
+    <audio src="music/Fidget_FieldsOfSpace.mp3" id="mfos"></audio>
+    <audio src="music/Fidget_Timeless.mp3" id="mtl"></audio>
+    
+    <div id="screen" class="screen">
+      <canvas crossorigin="anonymous" id='canvas' width='body.clientWidth' height='650' ></canvas>
+    </div>
+
+    <div id="homePage" class="homePage">
+          <button class="sb a active" onclick="tabs(event, 1)">Fight</button>
+          <button class="sb b" onclick="tabs(event, 2)">Idle</button>
+          <button class="sb c" onclick="tabs(event, 3)">Gravity</button>
+          <button class="sb d" onclick="tabs(event, 2)">Edit</button>
+          <button class="sb e" onclick="tabs(event, 1)">Time</button>
+
+      <div id="optionsscreen" class="optionsscreen">
+        <label class="switch swa">
+          <p>RESET PROGRESS</p>
+          <input checked id="option1" type="checkbox" onclick="updateOptions()">
+          <span class="slider"></span>
+        </label>
+        <label class="switch swb">
+          <p>MOBILE MODE</p>
+          <input id="option2" type="checkbox" onclick="updateOptions()">
+          <span class="slider"></span>
+        </label>
+        <label class="switch swc">
+          <p>MUSIC</p>
+          <input id="option3" type="checkbox" onclick="updateOptions()">
+          <span class="slider"></span>
+        </label>
+      </div>
+      
+      <div id="playscreen" class="playscreen">
+      <button class="skill right arrow" id="skillRight" onclick="arrows('skillRight')"><img src="assets/home/right-arrow.png" /></button>
+      <button class="skill left arrow"id="skillLeft" onclick="arrows('skillLeft')"><img src="assets/home/left-arrow.png" /></button>
+      <button class="new right arrow" id="skillRight" onclick="arrows('newRight')"><img src="assets/home/right-arrow.png" /></button>
+      <button class="new left arrow"id="skillLeft" onclick="arrows('newLeft')"><img src="assets/home/left-arrow.png" /></button>
+      <button id="devMode" class="devMode" onClick="devModeClick()" >New Level </button>
+        </div>
+      
+    </div>
+    
+    <div id="buttons" class="buttons">
+      <button class="export" onClick="exportLevel()">Export</button>
+      <button class="play" onClick="playLevel()">Play</button>
+      <input class="coinInput" type="number" id="coinInput">
+    </div>
+    
+    <script src='script.js'></script>
+  </body>
+</html>
