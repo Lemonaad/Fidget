@@ -237,6 +237,8 @@ function dialouge(num){
   bubble.src = "assets/blocks/Bubble1.png"
   devBlock = new Image()
   devBlock.src = "assets/blocks/DevBlock1.png"
+  newLevelIcon = new Image()
+  newLevelIcon.src = "assets/home/newLevelIcon.png"
   locked = new Image();
   locked.src = "assets/home/locked.png"
   titleImage = new Image();
@@ -305,7 +307,7 @@ function dialouge(num){
     }
     return "";
   }
-  let tab = "play";
+  let tab = "fight";
   let click = false;
   window.innerHeight-=5;
   let canvas = document.getElementById('canvas');
@@ -317,8 +319,10 @@ function dialouge(num){
   buttonDiv.style.display = 'none';
   let homePage = document.getElementById('homePage');
   homePage.style.display = 'none';
-  let playscreen = document.getElementById('playscreen');
-  playscreen.style.display = 'none';
+  let timescreen = document.getElementById('timescreen');
+  timescreen.style.display = 'none';
+  let editcreen = document.getElementById('editscreen');
+  editscreen.style.display = 'none';
   let optionsscreen = document.getElementById('optionsscreen');
   optionsscreen.style.display = 'none';
   
@@ -326,7 +330,8 @@ function dialouge(num){
   
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  
+  let attack = 0;
+  let attackType = 2;
   //platforms
   let cT;
   let cX;
@@ -335,8 +340,7 @@ function dialouge(num){
   let pY = [];
   let pT = [];
   let tc = 0;
-  let play = false;
-  let dow = -1;
+  let gameState = false;
   let lx = 0-window.innerWidth/2;
   let py = 0+window.innerHeight/2;
   let ly = -py;
@@ -365,12 +369,12 @@ function dialouge(num){
   let entity = [];
   console.log('type,x,y,timer,i1,i2')
   let particle = [[1,0,0]];
-  let newLevelX = [];
-  let newLevelY = [];
-  let newLevelT = [];
-  let newLevelTc = [];
+  let newLevelX = [[0]];
+  let newLevelY = [[0]];
+  let newLevelT = [[0]];
+  let newLevelTc = [0];
   let newLevelS = 0;
-  let newLock = [];
+  let newLock = [2];
   let levelType = 1;
   let level = 1;
   let velocity = 0;
@@ -478,6 +482,8 @@ function updateOptions(){
   o3 = eo3.checked;
   if (o1 == false){
     if (window.confirm('Are you sure you want to reset all of your progress?')){
+      alert("If you decline page reload, progress will still be cleared");
+      alert("To save progress, simply turn the setting back on");
       clearLocalStorage();
     }
     else{
@@ -497,7 +503,7 @@ onkeydown = onkeyup = function(e){
 
 
 function update(){
-  if (play == false){
+  if (gameState == false){
     if (mfos.paused == false){
       mfos.pause();
     }
@@ -515,165 +521,215 @@ function update(){
     homePage.style.display = 'block';
     canvas.style.overflow = 'auto';
     
-    if (tab == "play"){
-    playscreen.style.display = 'block';
-    optionsscreen.style.display = 'none';
-    
-    //screen size
-    canvas.width = window.innerWidth;
-    canvas.height = 900;
-    
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-    //background
-    ctx.fillStyle = '#ffffff'
-    ctx.fillRect(0,0,canvas.width, canvas.height);
-    ctx.fillStyle = "#696969";
-    ctx.fillRect(0,0,canvas.width,10);
-    ctx.fillStyle = '#cccccc'
-    ctx.fillRect(40,260,canvas.width-80,160);
-    ctx.fillRect(40,480,canvas.width-80,160);
-    ctx.fillRect(40,700,canvas.width-80,160);
-    
-    //levels :D
-    
-    for (let i = 0; i < genLevelX.length; i++) {
-      ctx.fillStyle = '#ffffff'
-      ctx.fillRect(i*110+50+110*genLevelS,270,100,140);
-      ctx.fillStyle = 'black'
-      ctx.font = "20px Impact";
-      ctx.fillText('Level '+(i+1),i*110+60+110*genLevelS,300);
-      if (genLock[i] == 0){
-        ctx.drawImage(locked,i*110+50+110*genLevelS,300);
-      }
-      else if (genLock[i] == 1 && play == false){
-        if(genLevelStat[i]>0){  
-          if (timer[i]<bestTime[i]){
-            bestTime[i] = timer[i]
-          }
-          else if (bestTime[i] == 0){
-            bestTime[i] = timer[i]
-          }
-          ctx.font = "14px Arial";
-          ctx.fillText('Time:'+secToTime(bestTime[i]),i*110+60+110*genLevelS,400);
-        }
-      }
-      else if (genLock[i] == 2){
-        ctx.drawImage(del,i*110+50+110*genLevelS,300);
-        if(genLevelStat[i]>0){  
-          if (timer[i]<bestTime[i]){
-            bestTime[i] = timer[i]
-          }
-          else if (bestTime[i] == 0){
-            bestTime[i] = timer[i]
-          }
-          ctx.font = "14px Arial";
-          ctx.fillText('Time:'+secToTime(bestTime[i]),i*110+60+110*genLevelS,400);
-        }
-      }
-    }
-  
-    for (let i = 0; i < newLevelX.length; i++) {
-      ctx.fillStyle = '#ffffff'
-      ctx.fillRect(i*110+50+110*newLevelS,490,100,140);
-      ctx.fillStyle = 'black'
-      ctx.font = "20px Impact";
-      ctx.fillText('Level '+(i+1),i*110+60+110*newLevelS,520);
-      if (newLock[i] == 0){
-        ctx.drawImage(locked,i*110+50+110*newLevelS,520);
-      }
-    }
-
-    for (let i = 0; i < smX.length; i++) {
-      ctx.fillStyle = '#ffffff'
-      ctx.fillRect(i*110+50+110*smS,710,100,140);
-      ctx.fillStyle = 'black'
-      ctx.font = "20px Impact";
-      ctx.fillText('Part '+(i+1),i*110+60+110*smS,740);
-      if (smLock[i] == 0){
-        ctx.drawImage(locked,i*110+50+110*smS,740);
-      }
-    }
-  
-    //outer box(es)
-    ctx.fillStyle = '#696969'
-    ctx.fillRect(30,230,canvas.width-60,30);
-    ctx.fillRect(30,420,canvas.width-60,10);
-    ctx.fillRect(30,230,10,200);
-    ctx.fillRect(canvas.width-40,230,10,200);
-    ctx.fillRect(30,450,canvas.width-60,30);
-    ctx.fillRect(30,640,canvas.width-60,10);
-    ctx.fillRect(30,450,10,200);
-    ctx.fillRect(canvas.width-40,450,10,200);
-    ctx.fillRect(30,670,canvas.width-60,30);
-    ctx.fillRect(30,860,canvas.width-60,10);
-    ctx.fillRect(30,670,10,200);
-    ctx.fillRect(canvas.width-40,670,10,200);
-    ctx.fillStyle = '#cccccc';
-    ctx.font = "20px Arial";
-    ctx.fillText('Levels',40,252.5);
-    ctx.fillText('New Levels',40,472.5);
-    ctx.fillText('Story Mode',40,692.5);
-    ctx.fillStyle = "#ffffff";
-
-    ctx.fillRect(0,0,30, canvas.height);
-    ctx.fillRect(canvas.width-30,0,30, canvas.height);
-  
-    //title image
-    ctx.drawImage(titleImage,(canvas.width-500)/2,10);
-    }
-    else if (tab == "stats"){
-      playscreen.style.display = 'none';
+    if (tab == "time"){
+      timescreen.style.display = 'block';
+      editscreen.style.display = 'none';
       optionsscreen.style.display = 'none';
+      
+      //screen size
       canvas.width = window.innerWidth;
-      canvas.height = 927.5;
+      canvas.height = 1477.5;
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#696969';
-      ctx.fillRect(20,50,canvas.width-40,85+bestTime.length*30);
+    
+      //background
+      ctx.fillStyle = '#ffffff'
+      ctx.fillRect(0,0,canvas.width, canvas.height);
+      ctx.fillStyle = "#696969";
       ctx.fillRect(0,0,canvas.width,10);
+      ctx.fillStyle = '#cccccc'
+      ctx.fillRect(40,260,canvas.width-80,160);
+      
+      //levels :D
+      
+      for (let i = 0; i < genLevelX.length; i++) {
+        ctx.fillStyle = '#ffffff'
+        ctx.fillRect(i*110+50+110*genLevelS,270,100,140);
+        ctx.fillStyle = 'black'
+        ctx.font = "20px Arial";
+        ctx.fillText('Level '+(i+1),i*110+60+110*genLevelS,300);
+        if (genLock[i] == 0){
+          ctx.drawImage(locked,i*110+50+110*genLevelS,300);
+        }
+        else if (genLock[i] == 1){
+          if(genLevelStat[i]>0){  
+            if (timer[i]<bestTime[i]){
+              bestTime[i] = timer[i]
+            }
+            else if (bestTime[i] == 0){
+              bestTime[i] = timer[i]
+            }
+            ctx.font = "14px Arial";
+            ctx.fillText('Time:'+secToTime(bestTime[i]),i*110+60+110*genLevelS,400);
+          }
+        }
+        else if (genLock[i] == 2){
+          ctx.drawImage(del,i*110+50+110*genLevelS,300);
+          if(genLevelStat[i]>0){  
+            if (timer[i]<bestTime[i]){
+              bestTime[i] = timer[i]
+            }
+            else if (bestTime[i] == 0){
+              bestTime[i] = timer[i]
+            }
+            ctx.font = "14px Arial";
+            ctx.fillText('Time:'+secToTime(bestTime[i]),i*110+60+110*genLevelS,400);
+          }
+        }
+      }
+    
+      //outer box(es)
+      ctx.fillStyle = '#696969'
+      ctx.fillRect(30,230,canvas.width-60,30);
+      ctx.fillRect(30,420,canvas.width-60,10);
+      ctx.fillRect(30,230,10,200);
+      ctx.fillRect(canvas.width-40,230,10,200);
+      ctx.fillRect(30,470,canvas.width-40,85+bestTime.length*30);
       ctx.fillStyle = '#cccccc';
-      ctx.fillRect(30,80,canvas.width-60,45+bestTime.length*30);
+      ctx.fillRect(40,500,canvas.width-80,45+bestTime.length*30);
       ctx.font = "20px Arial";
-      ctx.fillText('Personal Records',30,72.5);
+      ctx.fillText('Levels',40,252.5);
+      ctx.fillText('Personal Records',40,492.5);
       ctx.fillStyle = '#ffffff';
-      ctx.fillRect(35,85,canvas.width-70,35+bestTime.length*30);
+      ctx.fillRect(45,505,canvas.width-90,35+bestTime.length*30);
       ctx.fillStyle = '#000000';
-      ctx.fillText("Best Time",150,112.5);
-      ctx.fillText("Total Attempts",300,112.5);
+      ctx.fillText("Best Time",160,532.5);
+      ctx.fillText("Total Attempts",310,532.5);
       for (let i = 0; i < bestTime.length; i++){
         if (genLevelStat[i] == 0){
           ctx.fillStyle = '#cccccc';
         }
         ctx.strokeStyle = "#696969";
         ctx.beginPath();
-        ctx.moveTo(40,120+30*i);
-        ctx.lineTo(canvas.width-40,120+30*i);
+        ctx.moveTo(50,540+30*i);
+        ctx.lineTo(canvas.width-50,540+30*i);
         ctx.stroke();
-        ctx.fillText("level "+(i+1),50,142.5+30*i);
-        ctx.fillText(secToTime(bestTime[i]),150,142.5+30*i);
-        ctx.fillText(genLevelStat[i],300,142.5+30*i);
+        ctx.fillText("level "+(i+1),60,562.5+30*i);
+        ctx.fillText(secToTime(bestTime[i]),160,562.5+30*i);
+        ctx.fillText(genLevelStat[i],310,562.5+30*i);
       }
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0,0,30, canvas.height);
+      ctx.fillRect(canvas.width-30,0,30, canvas.height);
+
+      //title image
+      ctx.drawImage(titleImage,(canvas.width-500)/2,10);
     }
-    else if (tab == "options"){
-      playscreen.style.display = 'none';
+    else if (tab == "edit"){
+      timescreen.style.display = 'none';
+      editscreen.style.display = 'block';
       optionsscreen.style.display = 'block';
+      
+      //screen size
       canvas.width = window.innerWidth;
+      canvas.height = 900;
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#696969';
-      ctx.fillRect(20,50,canvas.width-40,242);
+    
+      //background
+      ctx.fillStyle = '#ffffff'
+      ctx.fillRect(0,0,canvas.width, canvas.height);
+      ctx.fillStyle = "#696969";
       ctx.fillRect(0,0,canvas.width,10);
+      ctx.fillStyle = '#cccccc'
+      ctx.fillRect(40,260,canvas.width-80,160);
+      
+      //Built levels
+      for (let i = 0; i < newLevelX.length; i++) {
+        ctx.fillStyle = '#ffffff'
+        ctx.fillRect(i*110+50+110*newLevelS,270,100,140);
+        ctx.fillStyle = 'black'
+        ctx.font = "20px Arial";
+        if (newLock[i] == 1){
+          ctx.fillText('Level '+(i),i*110+60+110*newLevelS,300);
+        }
+        else if (newLock[i] == 0){
+          ctx.fillText('Level '+(i),i*110+60+110*newLevelS,300);
+          ctx.drawImage(locked,i*110+50+110*newLevelS,300);
+        }
+        else if (newLock[i] == 2){
+          ctx.font = "17px arial";
+          ctx.drawImage(newLevelIcon,i*110+50+110*newLevelS,270)
+        }
+      }
+    
+      //outer box(es)
+      ctx.fillStyle = '#696969'
+      ctx.fillRect(30,230,canvas.width-60,30);
+      ctx.fillRect(30,420,canvas.width-60,10);
+      ctx.fillRect(30,230,10,200);
+
+      ctx.fillRect(20,470,canvas.width-40,242);
+      ctx.fillRect(0,470,canvas.width,10);
+      ctx.fillRect(canvas.width-40,60,10,200);
       ctx.fillStyle = '#cccccc';
-      ctx.fillRect(30,80,canvas.width-60,202);
+
+      ctx.fillRect(40,500,canvas.width-80,202);
       ctx.font = "20px Arial";
-      ctx.fillText('Settings',30,72.5);
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(40,90,canvas.width-80,54);
-      ctx.fillRect(40,154,canvas.width-80,54);
-      ctx.fillRect(40,218,canvas.width-80,54);
-      ctx.fillStyle = '#000000';
+      ctx.fillText('Custom Levels',40,252.5);
+      ctx.fillText('Settings',40,492.5);
+      ctx.fillStyle = "#ffffff";
+
+      ctx.fillRect(50,510,canvas.width-100,54);
+      ctx.fillRect(50,574,canvas.width-100,54);
+      ctx.fillRect(50,638,canvas.width-100,54);
+
+      ctx.fillRect(0,0,30, canvas.height);
+      ctx.fillRect(canvas.width-30,0,30, canvas.height);
+    
+      //title image
+      ctx.drawImage(titleImage,(canvas.width-500)/2,10);
+    }
+    else if (tab == "fight"){
+      timescreen.style.display = 'none';
+      editscreen.style.display = 'none';
+      optionsscreen.style.display = 'none';
+      
+      //screen size
+      canvas.width = window.innerWidth;
+      canvas.height = 900;
+      
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+      //background
+      ctx.fillStyle = '#ffffff'
+      ctx.fillRect(0,0,canvas.width, canvas.height);
+      ctx.fillStyle = "#696969";
+      ctx.fillRect(0,0,canvas.width,10);
+      ctx.fillStyle = '#cccccc'
+      ctx.fillRect(40,260,canvas.width-80,160);
+      
+      //Boss levels
+      for (let i = 0; i < smX.length; i++) {
+        ctx.fillStyle = '#ffffff'
+        ctx.fillRect(i*110+50+110*smS,270,100,140);
+        ctx.fillStyle = 'black'
+        ctx.font = "20px Arial";
+        ctx.fillText('Part '+(i+1),i*110+60+110*smS,300);
+        if (smLock[i] == 0){
+          ctx.drawImage(locked,i*110+50+110*smS,300);
+        }
+      }
+    
+      //outer box(es)
+      ctx.fillStyle = '#696969'
+      ctx.fillRect(30,230,canvas.width-60,30);
+      ctx.fillRect(30,420,canvas.width-60,10);
+      ctx.fillRect(30,230,10,200);
+      ctx.fillRect(canvas.width-40,230,10,200);
+      ctx.fillStyle = '#cccccc';
+      ctx.font = "20px Arial";
+      ctx.fillText('Boss fights',40,252.5);
+      ctx.fillStyle = "#ffffff";
+
+      ctx.fillRect(0,0,30, canvas.height);
+      ctx.fillRect(canvas.width-30,0,30, canvas.height);
+    
+      //title image
+      ctx.drawImage(titleImage,(canvas.width-500)/2,10);
     }
   }
-  if (play == true){
+  if (gameState != false){
     canvas.style.overflow = 'hidden';
     scrollTo(0,0);
     if(levelType == 1){
@@ -698,15 +754,13 @@ function update(){
     //px = 0+window.innerWidth/2
     homePage.style.display = 'none';
     canvas.style.overflow = 'hidden';
-
-    
-    
-    if(levelType == 1/*|| levelType == 3*/){
-        document.body.style.cursor = 'none';
-        timer[level-1]+=1;
+    if (attack > 0){
+      attack -= 1;
     }
-    
-      //preDrawUpdate();
+    if(levelType == 1 && gameState == 'play'){
+      document.body.style.cursor = 'none';
+      timer[level-1]+=1;
+    }
     
     //reset
       canvas.width = window.innerWidth;
@@ -893,13 +947,12 @@ function update(){
         px = -lx;
         fall = true;
         velocity = -1;
-        dow = -1;
         levelSet();
       }
   
     //next level
       if (onblock == 6 && coins >= tc){
-        win()
+        win();
       }
       /*if (onblock == 3){
         death();
@@ -999,10 +1052,10 @@ function update(){
             ctx.strokeStyle = '#000000'
             ctx.strokeRect(72+55*i+55*menuScroll,7,50,50);
             ctx.fillStyle = '#000000'
-            ctx.font = '16px Impact'
+            ctx.font = '16px Arial'
             ctx.fillText('Editor',74+55*i+55*menuScroll,28);
             ctx.fillText(dev,83+55*i+55*menuScroll,44);
-            ctx.font = '20px Impact'
+            ctx.font = '20px Arial'
           }
           else if (tv == spikes || tv == spikes3){
             ctx.drawImage(tv,72+55*i+55*menuScroll,22);
@@ -1022,7 +1075,6 @@ function update(){
         }
       }
     }
-      //enemy1
         if (entity.length > 0){
           for (let k = 1; k<9; k++){
             /*if (k == 1){
@@ -1069,11 +1121,8 @@ function update(){
 function win(){
     if (levelType == 3 && level == 1){
       particlize(3);
+      //fix later
       ly -= 10000000;
-    }
-    else if (levelType == 3){
-      dow = 1;
-      levelSet();
     }
     else{
       level+=1;
@@ -1084,7 +1133,7 @@ function win(){
       fall = true;
       falling = true;
       onblock = 0;
-      play = false;
+      gameState = 'win';
       dev = false;
       buttonDiv.style.display = 'none';
       if (levelType == 1){
@@ -1095,13 +1144,14 @@ function win(){
       if (o1 == true){
         updateLocalStorage();
       }
+      levelSet();
     }
   }
 
   function death(){
     if(dying==false){
       particlize(2);
-      dow = -1;
+      //dow = -1;
     }
     dying = true;
   }
@@ -1189,7 +1239,26 @@ function win(){
     }
     //entity display
     for(let i=0; i < entity.length; i++){
-      if (entity[i][0] == 1){
+      if (entity[i][0] == -1){
+        entity[i][2] += 5;
+        ctx.fillStyle = "rgb(255,0,0)"
+        ctx.fillRect(entity[i][1]-lx,entity[i][2]-ly,25,25);
+      }
+      else if (entity[i][0] == -2){
+        entity[i][3] += 1;
+        ctx.fillStyle = "rgb(255,0,0)"
+        if (entity[i][3] <= 50){
+          ctx.beginPath();
+          ctx.arc(entity[i][1]-lx,entity[i][2]-ly,entity[i][3],0,Math.PI*2);
+          ctx.fill();
+        }
+        else if (entity[i][3] <= 100){
+          ctx.beginPath();
+          ctx.arc(entity[i][1]-lx,entity[i][2]-ly,100-entity[i][3],0,Math.PI*2);
+          ctx.fill();
+        }
+      }
+      else if (entity[i][0] == 1){
         entity[i][3] += 1;
         let x = entity[i][1];
         let y = entity[i][2];
@@ -1241,65 +1310,133 @@ function win(){
         }
       }
       else if (entity[i][0] == 3){
+        for (let k = 1; k<9; k++){
+            /*if (k == 1){
+              data = ctx.getImageData(pX[0]*50-lx, (-50)*pY[0]+85*zy-ly, 1, 1).data; 
+            }
+            if (k == 2){
+              data = ctx.getImageData(pX[0]*50-lx+25, (-50)*pY[0]+85*zy-ly, 1, 1).data; 
+            }
+            if (k == 3){
+              data = ctx.getImageData(pX[0]*50-lx+49, (-50)*pY[0]+85*zy-ly, 1, 1).data;
+            }
+            if (k == 4){
+              data = ctx.getImageData(pX[0]*50-lx+49, (-50)*pY[0]+85*zy-ly+25, 1, 1).data; 
+            }
+            if (k == 5){
+              data = ctx.getImageData(pX[0]*50-lx+49, (-50)*pY[0]+85*zy-ly+49, 1, 1).data; 
+            }
+            if (k == 6){
+              data = ctx.getImageData(pX[0]*50-lx+25, (-50)*pY[0]+85*zy-ly+49, 1, 1).data; 
+            }
+            if (k == 7){
+              data = ctx.getImageData(pX[0]*50-lx, (-50)*pY[0]+85*zy-ly+49, 1, 1).data; 
+            }
+            if (k == 8){
+              data = ctx.getImageData(pX[0]*50-lx, (-50)*pY[0]+85*zy-ly+25, 1, 1).data; 
+            }
+            if (data[0] == 255 && data[1] == 0 && data[2] == 0){
+              entity[i][5]-=1
+              break;
+            }*/
+          }
+          if (entity[i][5] <= 0){
+            win();
+          }
         entity[i][3] += 1;
         /*comment: each 1/8 note is 12 frames*/
-        //attack
+        //attack    150 frames
         ctx.drawImage(boss1,pX[0]*50-lx,(-50)*pY[0]+85*zy-ly);
-        if (entity[i][3]%60==0){
+        ctx.fillStyle = "#cccccc"
+        ctx.fillRect(pX[0]*50-lx,(-50)*pY[0]+85*zy-ly-10,entity[i][5]/2,10);
+        if (entity[i][3]%48==0){
           entity[i][4] += 1;
           switch (entity[i][4]) {
-          case 1:
+          case 5:
             summon(3.1,1,0)
-            summon(3.1,15,0)
-            break
-          case 2:
-            summon(3.1,2,0)
-            summon(3.1,14,0)
-            break
-          case 3:
             summon(3.1,3,0)
             summon(3.1,13,0)
-            break
-          case 4:
-            summon(3.1,4,0)
-            summon(3.1,12,0)
-            break
-          case 5:
-            summon(3.1,5,0)
-            summon(3.1,11,0)
-            summon(3.1,1,0)
             summon(3.1,15,0)
+            summon(3.2,2,-48)
+            summon(3.2,14,-48)
             break
-          case 6:
+          case 10:
+            summon(3.1,4,0)
             summon(3.1,6,0)
             summon(3.1,10,0)
-            summon(3.1,2,0)
-            summon(3.1,14,0)
+            summon(3.1,12,0)
+            summon(3.2,5,-48)
+            summon(3.2,11,-48)
             break
-          case 7:
+          case 15:
             summon(3.1,7,0)
             summon(3.1,9,0)
-            summon(3.1,3,0)
-            summon(3.1,13,0)
+            summon(3.2,8,-48)
             break
-          case 8:
-            summon(3.1,8,0)
-            summon(3.1,4,0)
-            summon(3.1,12,0)
+          case 22:
+            summon(3.2,7,0)
+            summon(3.2,9,0)
             break
-          case 114:
-            summon(3.1,1,0)
-            summon(3.1,15,0)
+          case 24:
+            summon(3.2,6,0)
+            summon(3.2,10,0)
             break
-          case 115:
-            summon(3.1,2,0)
-            summon(3.1,14,0)
+          case 26:
+            summon(3.2,5,0)
+            summon(3.2,11,0)
             break
-          case 116:
-            summon(3.1,3,0)
-            summon(3.1,13,0)
+          case 28:
+            summon(3.2,4,0)
+            summon(3.2,12,0)
             break
-          case 500:
+          case 30:
+            summon(3.2,1,0)
+            summon(3.2,15,0)
+            break
+          case 35:
+            summon(3.2,1,-240)
+            summon(3.2,6,-240)
+            summon(3.2,7,-240)
+            summon(3.2,8,-240)
+            summon(3.2,9,-240)
+            summon(3.2,10,-240)
+            summon(3.2,13,-240)
+            summon(3.2,14,-240)
+            summon(3.2,15,-240)
+            break
+          case 45:
+            summon(3.2,1,-240)
+            summon(3.2,2,-240)
+            summon(3.2,3,-240)
+            summon(3.2,6,-240)
+            summon(3.2,7,-240)
+            summon(3.2,8,-240)
+            summon(3.2,9,-240)
+            summon(3.2,10,-240)
+            summon(3.2,15,-240)
+            break
+          case 55:
+            summon(3.2,1,-240)
+            summon(3.2,2,-240)
+            summon(3.2,3,-240)
+            summon(3.2,6,-240)
+            summon(3.2,10,-240)
+            summon(3.2,13,-240)
+            summon(3.2,14,-240)
+            summon(3.2,15,-240)
+            break
+          case 65:
+            summon(3.2,1,-240)
+            summon(3.2,3,-240)
+            summon(3.2,6,-240)
+            summon(3.2,7,-240)
+            summon(3.2,8,-240)
+            summon(3.2,9,-240)
+            summon(3.2,10,-240)
+            summon(3.2,13,-240)
+            summon(3.2,15,-240)
+            break
+          case 80:
             entity[i][4]=0;
             break
           }
@@ -1327,14 +1464,14 @@ function win(){
       }
       else if (entity[i][0]==3.2){
         if (entity[i][2]<0){
-          entity[i][2]+=1/500//comment: replace with frames between attacks
+          entity[i][2]+=1//comment: replace with frames between attacks
           ctx.drawImage(boss1Spike3,pX[entity[i][1]]*50-lx,0);
         }
         else {
           entity[i][2]+=window.innerHeight/50;
         }
         ctx.fillStyle = "#00c853";
-        if (entity[i][2]<=window.innerHeight){
+        if (entity[i][2]<=window.innerHeight && entity[i][2]>=0){
           ctx.fillRect(pX[entity[i][1]]*50-lx,0,50,entity[i][2]);
           ctx.drawImage(boss1Spike3,pX[entity[i][1]]*50-lx,entity[i][2]);
         }
@@ -1666,8 +1803,11 @@ function win(){
           onright = 0;
           onleft = 0;
           velocity = -1;
+          if (levelType == 3){
+            levelType = 2.9;
+          }
           levelSet();
-          particle.push([1,0,0])
+          //particle.push([1,0,0])
           dying = false;
         }
       }
@@ -1703,7 +1843,6 @@ function win(){
         }
       }
       else if (particle[i][0]==10){
-        dying = true;
         particle[i][1]+=1;
         if (particle[i][1]<=40){
           click = false;
@@ -1724,10 +1863,10 @@ function win(){
           ctx.fillRect(50,50,2*px-100,2*py-100);
           ctx.fillStyle = "#000000";
           ctx.font = (particle[i][1]-40)*2+"px Impact";
-          if(dow == -1){
+          if(gameState == 'death'){
             ctx.fillText("YOU DIED",px-90,150);
           }
-          else if (dow == 1){
+          else if (gameState == 'win'){
             ctx.fillText("Level Complete",px-160,150);
           }
         }
@@ -1741,15 +1880,15 @@ function win(){
           ctx.fillRect(50,50,2*px-100,2*py-100);
           ctx.fillStyle = "#000000";
           ctx.font = 50+"px Impact";
-          if(dow == -1){
+          if(gameState == 'death'){
             ctx.fillText("YOU DIED",px-90,150);
           }
-          else if (dow == 1){
+          else if (gameState == 'win'){
             ctx.fillText("Level Complete",px-160,150);
           }
           ctx.font = "30px audiowide";
-          ctx.fillText("Total attempts: "+smLevelStat[Math.floor(level-1)],(particle[i][1]-65)*px/25-150,200);
-          ctx.fillText("Tokens remaining :"+"3.141",(particle[i][1]-90)*px/25-175,250);
+          ctx.fillText("Best Time: "+secToTime(bestTime[level-2]),(particle[i][1]-65)*px/25-150,200);
+          ctx.fillText("Time: "+secToTime(timer[level-2]),(particle[i][1]-90)*px/25-115,250);
         }
         else if (particle[i][1]<=115){
           click = false;
@@ -1761,15 +1900,15 @@ function win(){
           ctx.fillRect(50,50,2*px-100,2*py-100);
           ctx.fillStyle = "#000000";
           ctx.font = 50+"px Impact";
-          if(dow == -1){
+          if(gameState == 'death'){
             ctx.fillText("YOU DIED",px-90,150);
           }
-          else if (dow == 1){
+          else if (gameState == 'win'){
             ctx.fillText("Level Complete",px-160,150);
           }
           ctx.font = "30px audiowide";
-          ctx.fillText("Total attempts: "+smLevelStat[Math.floor(level-1)],px-150,200);
-          ctx.fillText("Tokens remaining: "+"3.141",(particle[i][1]-90)*px/25-175,250);
+          ctx.fillText("Best Time: "+secToTime(bestTime[level-2]),px-150,200);
+          ctx.fillText("Time: "+secToTime(timer[level-2]),(particle[i][1]-90)*px/25-115,250);
           ctx.fillText("(Click to continue)",(particle[i][1]-115)*px/25-150,py*2-150);
         }
         else if (particle[i][1]<=140){
@@ -1782,15 +1921,15 @@ function win(){
           ctx.fillRect(50,50,2*px-100,2*py-100);
           ctx.fillStyle = "#000000";
           ctx.font = 50+"px Impact";
-          if(dow == -1){
+          if(gameState == 'death'){
             ctx.fillText("YOU DIED",px-90,150);
           }
-          else if (dow == 1){
+          else if (gameState == 'win'){
             ctx.fillText("Level Complete",px-160,150);
           }
           ctx.font = "30px audiowide"
-          ctx.fillText("Total attempts: "+smLevelStat[Math.floor(level-1)],px-150,200);
-          ctx.fillText("Tokens remaining :"+"3.141",px-175,250);
+          ctx.fillText("Best Time: "+secToTime(bestTime[level-2]),px-150,200);
+          ctx.fillText("Time: "+secToTime(timer[level-2]),px-115,250);
           ctx.fillText("(Click to continue)",(particle[i][1]-115)*px/25-150,py*2-150);
         }
         else if (particle[i][1]<=1000){
@@ -1802,20 +1941,20 @@ function win(){
           ctx.fillRect(50,50,2*px-100,2*py-100);
           ctx.fillStyle = "#000000";
           ctx.font = 50+"px Impact";
-          if(dow == -1){
+          if(gameState == 'death'){
             ctx.fillText("YOU DIED",px-90,150);
           }
-          else if (dow == 1){
+          else if (gameState == 'win'){
             ctx.fillText("Level Complete",px-160,150);
           }
           ctx.font = "30px audiowide"
-          ctx.fillText("Total attempts: "+smLevelStat[Math.floor(level-1)],px-150,200);
-          ctx.fillText("Tokens remaining :"+"3.141",px-175,250);
+          ctx.fillText("Best Time: "+secToTime(bestTime[level-2]),px-150,200);
+          ctx.fillText("Time: "+secToTime(timer[level-2]),px-115,250);
           ctx.fillText("(Click to continue)",px-150,py*2-150);
           if (click == true){
             click = false;
             particle.splice(i,1);
-            play = false;
+            gameState = false;
             dying = false;
             //smtoken -= 1;
           }
@@ -1823,7 +1962,7 @@ function win(){
         else {
           click = false;
           particle.splice(i,1);
-          play = false;
+          gameState = false;
           dying = false;
         }
       }
@@ -1918,19 +2057,31 @@ function win(){
       look = 'left';
     }
     else{
-      if (velocity2 < -0.075){
-        velocity2 += 0.15;
-      }
-      else if (velocity2 > 0.075){
-        velocity2 -= 0.15;
-      }
-      else {
-        velocity2 = 0;
+      if (gameState == 'play'){
+        if (velocity2 < -0.075){
+          velocity2 += 0.15;
+        }
+        else if (velocity2 > 0.075){
+          velocity2 -= 0.15;
+        }
+        else {
+          velocity2 = 0;
+        }
       }
     }
     lx+=velocity2;
     if ((map[87] || map[38])&& falling == false){
       velocity = jump;
+    }
+    if (attack == 0 &&(map[83] || map[40])){
+      if (attackType == 1){
+        summon(-1,0,0,0);
+        attack += 10;//80
+      }
+      else if (attackType == 2){
+        summon(-2,0,0,0);
+        attack += 80;
+      }
     }
   }
   
@@ -1972,7 +2123,14 @@ function win(){
   function levelSet(){
       coins = 0;
       entity = [];
-      if (levelType == 1){
+      if (gameState == 'win'){
+        smLevelStat[Math.floor(level)-1] += 1;
+        for(let k = 0; k <= smtext.length; k++){
+          smToken[k] = 0;
+        }
+        particlize(10);
+      }
+      else if (levelType == 1){
         genLevelStat[level-1] += 1;
         timer[level-1]=0;
         menu = false
@@ -2006,13 +2164,6 @@ function win(){
         run = 2.5;
         terminalVelocity = -5;
         effect = 0;
-      }
-      else if (levelType == 3){
-        smLevelStat[Math.floor(level)-1] += 1;
-        for(let k = 0; k <= smtext.length; k++){
-          smToken[k] = 0;
-        }
-        particlize(10);
       }
   }
   
@@ -2190,60 +2341,71 @@ function win(){
         levelSet();
       }
     }
-    if (play == false && tab == "play" && yn == 'no') {
-      y-=200
-      for (let i = 1; i < genLevelX.length+1; i++) {
-        if (100 > i*110+50+110*genLevelS-x && i*110+50+110*genLevelS-x > 0 && -140 < 70-y && 70-y < 0 && (genLock[i-1] == 1 || genLock[i-1] == 2)){
-          lx = 0-window.innerWidth/2;
-          ly = 0-window.innerHeight/2;
-          py = -ly;
-          px = -lx;
-          fall = true;
-          falling = true;
-          onblock = 0;
-          onright = 0;
-          onleft = 0;
-          velocity = -1 
-          play = true;
-          levelType = 1;
-          level = i;
-          levelSet();
+    if (gameState == false && yn == 'no') {
+      if (tab == "time"){
+        for (let i = 1; i < genLevelX.length+1; i++) {
+          if (100 > i*110+50+110*genLevelS-x && i*110+50+110*genLevelS-x > 0 && -140 < 270-y && 270-y < 0 && (genLock[i-1] == 1 || genLock[i-1] == 2)){
+            lx = 0-window.innerWidth/2;
+            ly = 0-window.innerHeight/2;
+            py = -ly;
+            px = -lx;
+            fall = true;
+            falling = true;
+            onblock = 0;
+            onright = 0;
+            onleft = 0;
+            velocity = -1 
+            gameState = 'play';
+            levelType = 1;
+            level = i;
+            levelSet();
+          }
         }
       }
-      for (let i = 1; i < newLevelX.length+1; i++) {
-        if (100 > i*110+50+110*newLevelS-x && i*110+50+110*newLevelS-x > 0 && -140 < 290-y && 290-y < 0 && (newLock[i-1] == 1 || newLock[i-1] == 2)){
-          lx = 0-window.innerWidth/2;
-          ly = 0-window.innerHeight/2;
-          py = -ly;
-          px = -lx;
-          fall = true;
-          falling = true;
-          onblock = 0;
-          onright = 0;
-          onleft = 0;
-          velocity = -1
-          play = true;
-          levelType = 2;
-          level = i;
-          levelSet();
+      else if (tab == "edit"){
+        for (let i = 1; i < newLevelX.length+1; i++) {
+          if (100 > i*110+50+110*newLevelS-x && i*110+50+110*newLevelS-x > 0 && -140 < 270-y && 270-y < 0 && (newLock[i-1] == 1 || newLock[i-1] == 2)){
+            if (newLock[i-1] == 2){
+              createNewLevel();
+              console.log('hi');
+            }
+            else{
+              lx = 0-window.innerWidth/2;
+              ly = 0-window.innerHeight/2;
+              py = -ly;
+              px = -lx;
+              fall = true;
+              falling = true;
+              onblock = 0;
+              onright = 0;
+              onleft = 0;
+              velocity = -1
+              gameState = 'play';
+              levelType = 2;
+              level = i;
+              levelSet();
+            }
+          }
         }
       }
-      for (let i = 1; i < smX.length+1; i++) {
-        if (100 > i*110+50+110*smS-x && i*110+50+110*smS-x > 0 && -140 < 510-y && 510-y < 0 && (smLock[i-1] == 1 || smLock[i-1] == 2)){
-          lx = 0-window.innerWidth/2;
-          ly = 0-window.innerHeight/2;
-          py = -ly;
-          px = -lx;
-          fall = true;
-          falling = true;
-          onblock = 0;
-          onright = 0;
-          onleft = 0;
-          velocity = -1;
-          play = true;
-          levelType = 2.9;
-          level = i;
-          levelSet();
+      else if (tab == "fight"){
+        for (let i = 1; i < smX.length+1; i++) {
+          if (100 > i*110+50+110*smS-x && i*110+50+110*smS-x > 0 && -140 < 270-y && 270-y < 0 && (smLock[i-1] == 1 || smLock[i-1] == 2)){
+            lx = 0-window.innerWidth/2;
+            ly = 0-window.innerHeight/2;
+            py = -ly;
+            px = -lx;
+            fall = true;
+            falling = true;
+            onblock = 0;
+            onright = 0;
+            onleft = 0;
+            velocity = -1;
+            gameState = 'play';
+            levelType = 2.9;
+            level = i;
+            levelSet();
+          }
         }
       }
     }
@@ -2365,8 +2527,8 @@ function win(){
     tc = 0;
     buttonDiv.style.display = 'none';
   }
-  function devModeClick() {
-    play = true;
+  function createNewLevel() {
+    gameState = 'play';
     dev = true;
     menu = true;
     clearScreen();
@@ -2455,13 +2617,19 @@ function win(){
       entity.push([2,varx*50-5,(-50)*vary+85*zy-5,0,i,0]);
     }
     else if (type == 3){
-      entity.push([3,varx*50,(-50)*vary+85*zy,0,0]);
+      entity.push([3,varx*50,(-50)*vary+85*zy,0,0,100]);
     }
     else if (type == 3.1){
-      entity.push([3.1,varx,vary]);
+      entity.push([3.1,varx,0]);
     }
     else if (type == 3.2){
       entity.push([3.2,varx,vary,i]);
+    }
+    else if (type == -1){
+      entity.push([-1,lx+px,ly+py,i]);
+    }
+    else if (type == -2){
+      entity.push([-2,lx+px+12,ly+py+12,0]);
     }
   }
 
@@ -2470,6 +2638,11 @@ function win(){
   let sec = frames/80;
   let counterTime = 0;
   // Days
+  if (sec >= 604800) {
+    counterTime = (sec - (sec % 604800)) / 604800;
+    returnTimeString += counterTime + 'wk ';
+    sec -= counterTime * 604800;
+  }
   if (sec >= 86400) {
     counterTime = (sec - (sec % 86400)) / 86400;
     returnTimeString += counterTime + 'd ';
@@ -2499,14 +2672,23 @@ function tabs(evt, num){
   }
   evt.currentTarget.className += " active";
   if (num == 1){
-    tab = "play";
+    tab = "fight";
   }
   else if (num == 2){
-    tab = "stats";
+    tab = "idle";
   }
   else if (num == 3){
     //tabl[2].className = tabl[2].className.replace(" active", "");
-    tab = "options";
+    tab = "defeat";
+  }
+  else if (num == 4){
+    tab = "gravity";
+  }
+  else if (num == 5){
+    tab = "edit";
+  }
+  else if (num == 6){
+    tab = "time";
   }
 }
 
