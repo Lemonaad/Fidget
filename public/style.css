@@ -10,7 +10,6 @@
   overscroll-behavior: none;
 }
 
-
 .arrow {
   position:absolute;
   background-color: rgba(0,0,0,0);
@@ -21,11 +20,11 @@
 .left {
   left: 5px;
 }
-.skill {
+.time {
   top: 300px;
 }
-.new {
-  top: 520px;
+.edit {
+  top: 300px;
 }
 
 .coinInput{
@@ -123,7 +122,6 @@
   width: 0px;
 }
 
-
 .switch {
   display: block;
   width: 60px;
@@ -133,17 +131,17 @@
 .swa {
   position: absolute;
   left: 75%;
-  top: 100px;
+  top: 520px;
 }
 .swb {
   position: absolute;
   left: 75%;
-  top: 164px;
+  top: 584px;
 }
 .swc {
   position: absolute;
   left: 75%;
-  top: 228px;
+  top: 648px;
 }
 .switch input {
   opacity: 0;

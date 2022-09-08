@@ -124,12 +124,13 @@ let jp = [
 ];
 
 let jsm = [
+  [0,-6,-5,-4,-5,-4,-3,-1,0,1,3,4,5,4,5,6],[1,0,0,0,-3,-3,-3,-4,-4,-4,-3,-3,-3,0,0,0],[4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], 
+  [0,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6],[1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  [0,-5,-5,-5,-3,-1,0,1,3,5,5,5,3,1,0,-1,-3,-1,0,1,1,1,0,-1,-1],[1,0,1,2,4,6,6,6,4,2,1,0,-2,-4,-4,-4,-2,2,2,2,1,0,0,0,1],[2,1.1,1.1,1,1,1,1,1,1,1,1.1,1.1,1,1,1,1,1,1,1,1,1.1,1.1,1.1,1.1,1.1],
+
   [0,-1,-2,-3,-4,1,2,3,-4,-3,-2,-1,1,0,2,3,-4,-4,-4,-4,-4,-3,-3,-3,-3,-3,-2,-2,-2,-2,-2,-1,-1,-1,-1,-1,0,0,0,0,0,1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,-4,-3,-2,-4,-3,-2,-1,0,-1,0,1,3,2,3,3,3,2,1,0,1,2,2.5,-4,-4,-4,-3,-3,-3,-2,-2,-2,-1,-1,-1,0,0,0,1,1,1,2,2,2,3,3,3,-4,-3,-2,-1,0,1,2,3,2,4,5,6,7,8,9,10,4,4,4,4,4,4,5,5,5,5,5,6,6,6,7,8,10,9,8,7,6,5,4,12,16,17,12,16,17,20,20,24,25,26,27,28,29,30,31,32,33,34,26,27,28,28,28,29,29,29,29,30,30,30,30,31,31,31,31,32,32,33,25,27,28,30,32,34,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,25,25,25,25,25,26,26,26,26,26,28,29,31,32,33,33,33,33,33,33,33,30,33,33,33,32,31,30,28,33,33,33,30,30,33,33,33,33,33,33,33,32,31,28,29,31,32,35,35,35,35,35,34,34,34,29.5,32,28.5,32.5,32.5,28,28,-2,-2.5,-3,0,0.5,41,42,43,43,44,44,44,42,44,44,44,43,47,47,47,47,47,47,44,44,44,45,46,47,44,44,47,48,48,45,46,47,44,46,48,47,48,48,42,43,44,41,47,46,45,52,53,59,60,53,52,53,60,59,56,56,47,47,47,47,47,47,50,51,52,53,54,53,52,53,51,52.5,60.5,66,63,55,56,54,54,54,55,59,67,68,69,70,71,72,73,68,69,70,70,71,71,72,72,72,73,73,73,67,68,69,69,70,70,70,72,72,68,72,71,72,73,73,73,73,74,74,74,74,74,74,74,74,74,74,71,72,73,74,74,72,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,83,83,83,83,83,83,83,83,83,83,83,83,83,84,85,86,87,88,83,83,83,83,83,84,85,86,84,85,86,87,85,96,93,92,91,91,92,85,92,81,82,81,82,82,81,82,82,81,82.5,81,82.5,81,82,81,82,81,82,81,82,81,82,81,82,81,82,81,82,81,82,81,82,81,82,81,82,81,82,81,82,81,82,81,81,34,34,33,31,31,31,31,30,30,30,30,30,29,29,29,29,28,27,28,29,30,31,32,28,29,30,31,32,28,29,30,31,32,28,29,31,32,28,29,30,31,32,28,29,30,31,32,29,28,29,31,32,28,29,30,31,32,28,29,30,31,32,28,29,30,31,32,28,29,31,32,28,29,30,31,32,28,29,30,31,32,28,29,30,28,29,30,31,32,30,31,32,28,29,30,31,32,28,29,30,27,33,28,29,30,31,32,27,28,29,30,31,32,33,32],
   [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,-1,-2,-3,-4,-5,-1,-2,-3,-4,-5,-1,-2,-3,-4,-5,-1,-2,-3,-4,-5,-1,-2,-3,-4,-5,-1,-2,-3,-4,-5,-1,-2,-3,-4,-5,-1,-2,-3,-4,-5,-9,-9,-9,-6,-6,-6,-6,-6,-9,-9,-9,-9,-9,-8,-7,-6,-6,-6,-7,-7,-7,-8.5,-10,-11,-12,-10,-11,-12,-10,-11,-12,-10,-11,-12,-10,-11,-12,-10,-11,-12,-10,-11,-12,-10,-11,-12,-13,-13,-13,-13,-13,-13,-13,-13,1.5,1,1,1,1,1,1,1,-5,-4,-3,-2,-1,0,-4,-3,-2,-1,0,-2,-1,0,0,0,0,0,-1,-1,-3,-5,-6,1,1,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,-1,-2,0,-1,-2,-3,0,-1,-2,-3,0,-1,-2,-3,0,-1,0,0,-1,-3,-4,-2,0,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,27,26,25,24,23,27,26,25,24,23,23,23,23,23,23,22,21,20,19,18,17,19,16,15,14,16,16,16,16,13,12,11,11,15,10,9,8,7,6,5,4,4,4,6,6,8,8,27,26,25,24,23,27,26,25,1.5,4.5,6.5,13,16.5,16.5,23.5,-9,-9,-9,-9,-9,1,1,1,0,1,0,-1,0,-2,-3,-4,-1,1,0,-1,-2,-3,-4,-5,-8,-8,-8,-8,-8,-6,-7,-5,-5,-8,-9,-9,-9,-9,-10,-9,-10,-6,-4,2,2,2,0,2,0,-4,-6,-6,-2,-2,-7,-7,-8,-3,-3,-4,-3,8,7,6,5,4,3,8,8,8,8,8,7,7,6,7,8.5,-1.5,-2,-2,8,8,7,6,5,7,8,-2,-1,-1,0,1,3,5,-2,-2,-1,-2,0,-2,2,1,-2,4,3,2,-3,-3,-3,-4,-3,-4,-5,-4,-5,-4,0,-5,-6,-4,-5,-6,-7,4,3,2,1,0,-2,-3,-4,-5,-6,-6,-7,-8,-7,-8,-1.5,10,9,8,7,6,5,4,3,2,1,0,-1,-2,-3,-4,-5,-6,-7,-8,10,9,8,7,6,5,4,3,2,1,0,-1,-2,-1,-1,-1,-2,-2,-3,-4,-5,-6,-7,-2,-2,-2,-3,-3,-3,-3,-4,-6,-6,-6,-6,-7,-7,-0.5,-5.5,10,10,9,9,8,4,-1,-7,7.5,3.5,-1.5,-6.5,8,8,7,7,6,6,5,5,4,4,3,3,2,2,1,1,0,0,-1,-1,-2,-2,-3,-3,-4,-4,-5,-5,-6,-6,-7,-8,24,23,24,24,25,26,27,27,26,25,24,23,27,26,25,24,24,24,22,22,22,22,22,21,21,21,21,21,20,20,20,20,20,19,19,19,19,18,18,18,18,18,17,17,17,17,17,16,15,15,15,15,14,14,14,14,14,13,13,13,13,13,12,12,12,12,12,11,11,11,11,10,10,10,10,10,9,9,9,9,9,8,8,8,7,7,7,7,7,6,6,6,5,5,5,5,5,4,4,4,3,3,3,3,3,3,3,2,2,2,2,2,2,2,24],
-  [1,1,1,1,1,1,1,1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.5,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,100,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.5,1.5,1.5,1.5,1.5,101,1,1,1,1,1,1,1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.5,1.5,1.5,1.5,1,1,1,1.5,1.5,1.5,1,1.5,1,1,1,1,1,1,1,1,1,1,1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.5,1.5,1.5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,102,103,104,105,106,107,108,20,20,20,20,20,1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.1,1.1,1.1,1.5,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.5,1.5,1,1,1,1,1.5,1,3,3,1,1,1,1,1.1,1.5,1.5,1.5,1.5,1.5,1,3.4,3.4,3.4,3.4,3.4,3.4,1,1,1,1,1,1.1,1.1,1.5,1.5,109,110,1,1,1,1,1.1,1.1,1.5,1.5,1,1,1,1,1,1,1,1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.1,1.1,111,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,2,2,2,2,2,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,6,1,1,1,1.5,1.5,112,113,99,99,99,99,3,3,3,2,9,9,9,9,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,2,2,99,99,99,99,99,99,99,99,99,99,99,99,99],
-
-  [0,-6,-5,-4,-5,-4,-3,-1,0,1,3,4,5,4,5,6],[1,0,0,0,-3,-3,-3,-4,-4,-4,-3,-3,-3,0,0,0],[4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-  [0,-5,-5,-5,-3,-1,0,1,3,5,5,5,3,1,0,-1,-3,-1,0,1,1,1,0,-1,-1],[1,0,1,2,4,6,6,6,4,2,1,0,-2,-4,-4,-4,-2,2,2,2,1,0,0,0,1],[2,1.1,1.1,1,1,1,1,1,1,1,1.1,1.1,1,1,1,1,1,1,1,1,1.1,1.1,1.1,1.1,1.1]
+  [1,1,1,1,1,1,1,1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.5,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,100,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.5,1.5,1.5,1.5,1.5,101,1,1,1,1,1,1,1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.5,1.5,1.5,1.5,1,1,1,1.5,1.5,1.5,1,1.5,1,1,1,1,1,1,1,1,1,1,1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.5,1.5,1.5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,102,103,104,105,106,107,108,20,20,20,20,20,1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.1,1.1,1.1,1.5,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.5,1.5,1,1,1,1,1.5,1,3,3,1,1,1,1,1.1,1.5,1.5,1.5,1.5,1.5,1,3.4,3.4,3.4,3.4,3.4,3.4,1,1,1,1,1,1.1,1.1,1.5,1.5,109,110,1,1,1,1,1.1,1.1,1.5,1.5,1,1,1,1,1,1,1,1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,1.5,1.5,1.1,1.1,111,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,2,2,2,2,2,1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.5,6,1,1,1,1.5,1.5,112,113,99,99,99,99,3,3,3,2,9,9,9,9,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,2,2,99,99,99,99,99,99,99,99,99,99,99,99,99]
 ];
 /*
   "-" player says 'next'
@@ -257,10 +258,12 @@ function dialouge(num){
   boss1Spike3.src = "assets/entity/Boss1Spike3.png"
   boss1 = new Image();
   boss1.src = "assets/entity/Boss1.png"
+  boss2 = new Image();
+  boss2.src = "assets/entity/Boss4.png"
   enemy2 = new Image();
   enemy2.src = "assets/entity/Enemy2.png"
   clockIcon = new Image();
-  clockIcon.src = "assets/other/timeIcon.png"
+  clockIcon.src = "assets/other/TimeIcon.png"
   eye1 = new Image();
   eye1.src = "assets/skins/Eyes_1.png"
   eye2 = new Image();
@@ -269,7 +272,7 @@ function dialouge(num){
   entityTextureMap.src = "assets/entity/TextureMap.png"
 
   del = new Image();
-  del.src = "assets/home/experimental.png"
+  del.src = "assets/home/Experimental.png"
 
   let bX = 0;
   let bY = 0;
@@ -314,7 +317,6 @@ function dialouge(num){
   let zx = window.innerWidth/200;
   let zy = window.innerHeight/100;
   let ctx = canvas.getContext('2d');
-  //buildMenu
   let buttonDiv = document.getElementById('buttons');
   buttonDiv.style.display = 'none';
   let homePage = document.getElementById('homePage');
@@ -325,14 +327,13 @@ function dialouge(num){
   editscreen.style.display = 'none';
   let optionsscreen = document.getElementById('optionsscreen');
   optionsscreen.style.display = 'none';
-  
-  //screen is 9 tall and 19 wide
-  
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  let colors = ['#d81b60','#039ae5','#ffc928','#00e677','#d400f9'];
+  let color1;
+  let color2;
   let attack = 0;
   let attackType = 2;
-  //platforms
   let cT;
   let cX;
   let cY;
@@ -367,7 +368,6 @@ function dialouge(num){
   let inside = false;
   let dying = false;
   let entity = [];
-  console.log('type,x,y,timer,i1,i2')
   let particle = [[1,0,0]];
   let newLevelX = [[0]];
   let newLevelY = [[0]];
@@ -388,14 +388,14 @@ function dialouge(num){
   let mfos = document.getElementById('mfos');
   let mtl = document.getElementById('mtl');
   function isPlaying(tracknum) { return !tracknum.paused; };
-  let smTc = [10,1];
+  let smTc = [0,0,10];
   let smS = 0;
-  let smLock = [1,1];
+  let smLock = [1,1,1];
   let smX = [];
   let smY = [];
   let smT = [];
   let temp;
-  for (let i = 1; i<3; i++){
+  for (let i = 1; i<4; i++){
     smX.push(jsm[i*3-3]);
     smY.push(jsm[i*3-2]);
     smT.push(jsm[i*3-1]);
@@ -413,7 +413,7 @@ function dialouge(num){
   let timer = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   let bestTime = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   let genLevelStat = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-  let smLevelStat = [0];
+  let smLevelStat = [0,0,0];
 if (localStorage.getItem('genLock') == null) {
   genLock = [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   bestTime = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -448,8 +448,8 @@ genLock[24]=2;
   let skint;
 
   skin = new Image();
-  skin.src = "assets/skins/player1.png";
-  skinc = gC("sanjith");
+  skin.src = "assets/skins/Player1.png";
+  /*skinc = gC("sanjith");
   if (skinc == "true"){
     skint = true;
     skin.src = "assets/skins/Pratskin.png"
@@ -462,13 +462,13 @@ genLock[24]=2;
   skinc = gC("krishna");
   if (skinc == "true"){
     skint = true;
-    skin.src = "assets/skins/player1.png"
+    skin.src = "assets/skins/Player1.png"
   }
   skinc= gC("nathaniel");
   if (skinc == "true"){
     skint = true;
     skin.src = "assets/skins/Armorskin.png"
-  }
+  }*/
   let eo1 = document.getElementById('option1');
   let eo2 = document.getElementById('option2');
   let eo3 = document.getElementById('option3');
@@ -539,8 +539,6 @@ function update(){
       ctx.fillRect(0,0,canvas.width,10);
       ctx.fillStyle = '#cccccc'
       ctx.fillRect(40,260,canvas.width-80,160);
-      
-      //levels :D
       
       for (let i = 0; i < genLevelX.length; i++) {
         ctx.fillStyle = '#ffffff'
@@ -658,10 +656,9 @@ function update(){
       ctx.fillRect(30,230,canvas.width-60,30);
       ctx.fillRect(30,420,canvas.width-60,10);
       ctx.fillRect(30,230,10,200);
-
+      ctx.fillRect(canvas.width-40,230,10,200);
       ctx.fillRect(20,470,canvas.width-40,242);
       ctx.fillRect(0,470,canvas.width,10);
-      ctx.fillRect(canvas.width-40,60,10,200);
       ctx.fillStyle = '#cccccc';
 
       ctx.fillRect(40,500,canvas.width-80,202);
@@ -738,8 +735,16 @@ function update(){
       }
     }
     else if (levelType == 2.9){
-      if (level == 2){
+      if (level == 1){
         summon(3);
+        mfos.currentTime = 0;
+      }
+      else if (level == 2){
+        summon(4);
+        mfos.currentTime = 0;
+      }
+      else if (level == 3){
+        summon(5);
         mfos.currentTime = 0;
       }
       levelType = 3;
@@ -786,7 +791,9 @@ function update(){
         keyUpdate();
       }
       fall = true;
-      ly -= velocity;
+      if (gameState == 'play'){
+        ly -= velocity;
+      }
   
     //player and entity display
       kineticDisplay(1,-1);
@@ -947,6 +954,9 @@ function update(){
         px = -lx;
         fall = true;
         velocity = -1;
+        if (levelType == 3){
+          levelType = 2.9
+        } 
         levelSet();
       }
   
@@ -1077,7 +1087,7 @@ function update(){
     }
         if (entity.length > 0){
           for (let k = 1; k<9; k++){
-            /*if (k == 1){
+            if (k == 1){
               data = ctx.getImageData(px, py, 1, 1).data; 
             }
             if (k == 2){
@@ -1112,7 +1122,7 @@ function update(){
             }
             else if (data[0] == 239 && data[1] == 82 && data[2] == 80){
               death();
-            }*/
+            }
           }
         }
     }
@@ -1176,9 +1186,9 @@ function win(){
   
   function kineticDisplay(num, j) {
   
-    if (dying == false){
+    if (gameState == 'play'){
       //draw player
-      if (j>-1){
+      if (j>-1 && dying == false){
         if (skint == true){
             ctx.drawImage(skin,px,py);
         }
@@ -1294,12 +1304,12 @@ function win(){
           ctx.drawImage(enemy2,entity[i][1]-lx,entity[i][2]-ly-entity[i][3]);
         }
         if (entity[i][5] == 0){
-          if(lx+px+30>=entity[i][1] && lx+px<=entity[i][1]+30 && ly+py+35 >=entity[i][2]+entity[i][3]){
+          if(lx+px+30>=entity[i][1] && lx+px<=entity[i][1]+40 && ly+py+35 >=entity[i][2]+entity[i][3]){
             entity[i][3] += 10;
           }
           else if (entity[i][3] > 0){
             entity[i][3]=entity[i][3]*-1;
-            entity[i][5]=40
+            entity[i][5]=80;
           }
           else if (entity[i][3] < 0){
             entity[i][3]+=10;
@@ -1310,8 +1320,8 @@ function win(){
         }
       }
       else if (entity[i][0] == 3){
-        for (let k = 1; k<9; k++){
-            /*if (k == 1){
+        for (let k = 1; k<10; k++){
+            if (k == 1){
               data = ctx.getImageData(pX[0]*50-lx, (-50)*pY[0]+85*zy-ly, 1, 1).data; 
             }
             if (k == 2){
@@ -1338,7 +1348,7 @@ function win(){
             if (data[0] == 255 && data[1] == 0 && data[2] == 0){
               entity[i][5]-=1
               break;
-            }*/
+            }
           }
           if (entity[i][5] <= 0){
             win();
@@ -1464,7 +1474,7 @@ function win(){
       }
       else if (entity[i][0]==3.2){
         if (entity[i][2]<0){
-          entity[i][2]+=1//comment: replace with frames between attacks
+          entity[i][2]+=1
           ctx.drawImage(boss1Spike3,pX[entity[i][1]]*50-lx,0);
         }
         else {
@@ -1480,6 +1490,231 @@ function win(){
         }
         else {
           entity.splice(i,1);
+        }
+      }
+      else if (entity[i][0]==3.3){
+        if (entity[i][2]<0){
+          entity[i][2]+=1
+        }
+        else {
+          entity[i][2]+=window.innerHeight/100;
+        }
+        ctx.fillStyle = "#00c853";
+        if (entity[i][2]<=window.innerHeight && entity[i][2]>=0){
+          ctx.fillRect(pX[0]*50-lx,(-50)*pY[0]+85*zy-ly-entity[i][2]+25,25,entity[i][2]);
+          ctx.fillRect(pX[0]*50-lx+25,(-50)*pY[0]+85*zy-ly,entity[i][2],25);
+          ctx.fillRect(pX[0]*50-lx+25,(-50)*pY[0]+85*zy-ly+25,25,entity[i][2]);
+          ctx.fillRect(pX[0]*50-lx-entity[i][2]+25,(-50)*pY[0]+85*zy-ly+25,entity[i][2],25);
+          ctx.drawImage(enemy1Spike1,pX[0]*50-lx,(-50)*pY[0]+85*zy-ly-entity[i][2]);
+          ctx.drawImage(enemy1Spike2,pX[0]*50-lx+entity[i][2]+25,(-50)*pY[0]+85*zy-ly);
+          ctx.drawImage(enemy1Spike3,pX[0]*50-lx+25,(-50)*pY[0]+85*zy-ly+entity[i][2]+25);
+          ctx.drawImage(enemy1Spike4,pX[0]*50-lx-entity[i][2],(-50)*pY[0]+85*zy-ly+25);
+        }
+        else if (entity[i][2]<=window.innerHeight*2){
+          ctx.fillRect(pX[0]*50-lx+25,(-50)*pY[0]+85*zy-ly-entity[i][2]+window.innerHeight+25,25,entity[i][2]-window.innerHeight);
+          ctx.fillRect(pX[0]*50-lx+25,(-50)*pY[0]+85*zy-ly+25,entity[i][2]-window.innerHeight,25);
+          ctx.fillRect(pX[0]*50-lx,(-50)*pY[0]+85*zy-ly+25,25,entity[i][2]-window.innerHeight);
+          ctx.fillRect(pX[0]*50-lx-entity[i][2]+window.innerHeight+25,(-50)*pY[0]+85*zy-ly,entity[i][2]-window.innerHeight,25);
+          ctx.drawImage(enemy1Spike1,pX[0]*50-lx+25,(-50)*pY[0]+85*zy-ly-entity[i][2]+window.innerHeight);
+          ctx.drawImage(enemy1Spike2,pX[0]*50-lx+entity[i][2]-window.innerHeight+25,(-50)*pY[0]+85*zy-ly+25);
+          ctx.drawImage(enemy1Spike3,pX[0]*50-lx,(-50)*pY[0]+85*zy-ly+entity[i][2]-window.innerHeight+25);
+          ctx.drawImage(enemy1Spike4,pX[0]*50-lx-entity[i][2]+window.innerHeight,(-50)*pY[0]+85*zy-ly);
+        }
+        else {
+          entity.splice(i,1);
+        }
+      }
+      else if (entity[i][0]==4){
+        for (let k = 1; k<10; k++){
+            if (k == 1){
+              data = ctx.getImageData(pX[0]*50-lx+entity[i][1], py*2-50, 1, 1).data; 
+            }
+            if (k == 2){
+              data = ctx.getImageData(pX[0]*50-lx+entity[i][1]+25, py*2-50, 1, 1).data; 
+            }
+            if (k == 3){
+              data = ctx.getImageData(pX[0]*50-lx+entity[i][1]+49, py*2-50, 1, 1).data;
+            }
+            if (k == 4){
+              data = ctx.getImageData(pX[0]*50-lx+entity[i][1]+49, py*2-50+25, 1, 1).data; 
+            }
+            if (k == 5){
+              data = ctx.getImageData(pX[0]*50-lx+entity[i][1]+49, py*2-50+49, 1, 1).data; 
+            }
+            if (k == 6){
+              data = ctx.getImageData(pX[0]*50-lx+entity[i][1]+25, py*2-50+49, 1, 1).data; 
+            }
+            if (k == 7){
+              data = ctx.getImageData(pX[0]*50-lx+entity[i][1], py*2-50+49, 1, 1).data; 
+            }
+            if (k == 8){
+              data = ctx.getImageData(pX[0]*50-lx+entity[i][1], py*2-50+25, 1, 1).data; 
+            }
+            if (data[0] == 255 && data[1] == 0 && data[2] == 0){
+              entity[i][5]-=1
+              break;
+            }
+          }
+          if (entity[i][5] <= 0){
+            win();
+          }
+        ctx.drawImage(boss1,pX[0]*50-lx+entity[i][1],py*2-50);
+        ctx.fillStyle = "#cccccc"
+        ctx.fillRect(pX[0]*50-lx+entity[i][1],2*py-60,entity[i][5]/20,10);
+
+        entity[i][3] += 1;
+        if (entity[i][3]%48==0){
+          entity[i][4] += 1;
+          switch (entity[i][4]) {
+          case 5:
+          case 15:
+          case 30:
+          case 40:
+            summon(3.2,1,-48)
+            summon(3.2,2,-96)
+            summon(3.2,3,-144)
+            summon(3.2,4,-192)
+            summon(3.2,13,-48)
+            summon(3.2,12,-96)
+            summon(3.2,11,-144)
+            summon(3.2,10,-192)
+            break
+          case 10:
+          case 20:
+          case 35:
+          case 45:
+            summon(3.2,5,-144)
+            summon(3.2,6,-96)
+            summon(3.2,7,-48)
+            summon(3.2,8,-96)
+            summon(3.2,9,-144)
+            if (getRandomInt(2) == 1){
+              entity[i][1]-=150
+            }
+            else{
+              entity[i][1]+=150
+            }
+            if (entity[i][1]>300||entity[i][1]<-300){
+              entity[i][1]=0;
+            }
+            break
+          case 25:
+            summon(3.1,4,0)
+            summon(3.1,5,0)
+            summon(3.1,3,0)
+            summon(3.1,11,0)
+            summon(3.1,9,0)
+            summon(3.1,10,0)
+            break
+          case 60:
+            entity[i][4] = 0;
+            break
+          }
+        }
+      }
+      else if (entity[i][0]==5){
+        for (let k = 1; k<10; k++){
+          if (k == 1){
+            data = ctx.getImageData(pX[0]*50-lx+entity[i][1], py*2-50, 1, 1).data; 
+          }
+          if (k == 2){
+            data = ctx.getImageData(pX[0]*50-lx+entity[i][1]+25, py*2-50, 1, 1).data; 
+          }
+          if (k == 3){
+            data = ctx.getImageData(pX[0]*50-lx+entity[i][1]+49, py*2-50, 1, 1).data;
+          }
+          if (k == 4){
+            data = ctx.getImageData(pX[0]*50-lx+entity[i][1]+49, py*2-50+25, 1, 1).data; 
+          }
+          if (k == 5){
+            data = ctx.getImageData(pX[0]*50-lx+entity[i][1]+49, py*2-50+49, 1, 1).data; 
+          }
+          if (k == 6){
+            data = ctx.getImageData(pX[0]*50-lx+entity[i][1]+25, py*2-50+49, 1, 1).data; 
+          }
+          if (k == 7){
+            data = ctx.getImageData(pX[0]*50-lx+entity[i][1], py*2-50+49, 1, 1).data; 
+          }
+          if (k == 8){
+            data = ctx.getImageData(pX[0]*50-lx+entity[i][1], py*2-50+25, 1, 1).data; 
+          }
+          if (data[0] == 255 && data[1] == 0 && data[2] == 0){
+            entity[i][5]-=1
+            break;
+          }
+        }
+        if (entity[i][5] <= 0){
+          win();
+        }
+        ctx.drawImage(boss2,pX[0]*50-lx-25,(-50)*pY[0]+85*zy-ly-25);
+        ctx.fillStyle = "#cccccc"
+        ctx.fillRect(pX[0]*50-lx-25,(-50)*pY[0]+85*zy-ly-25,entity[i][5]/5,10);
+        
+        entity[i][3] += 1;
+        if (entity[i][3]%48==0){
+          entity[i][4] += 1;
+          switch (entity[i][4]) {
+            case 10:
+              summon(3.1,4,0);
+              summon(3.1,8,0);
+              summon(3.1,12,0);
+              summon(3.1,16,0);
+              break
+            case 15:
+              summon(3.2,2,-48);
+              summon(3.2,4,-96);
+              summon(3.2,5,-144);
+              summon(3.2,6,-192);
+              summon(3.2,7,-144);
+              summon(3.2,8,-96);
+              summon(3.2,11,-48);
+              break
+            case 16:
+              summon(3.2,2,-338);
+              summon(3.2,11,-338);
+              break
+            case 17:
+              summon(3.2,4,-240);
+              summon(3.2,8,-240);
+              break
+            case 18:
+              summon(3.2,5,-144);
+              summon(3.2,7,-144);
+              break
+            case 19:
+              summon(3.2,6,-48);
+              break
+            case 23:
+              summon(3.1,3,0);
+              summon(3.1,2,0);
+              summon(3.1,1,0);
+              summon(3.1,4,0);
+              summon(3.1,5,0);
+              summon(3.1,6,0);
+              summon(3.1,7,0);
+              summon(3.1,8,0);
+              summon(3.1,9,0);
+              summon(3.1,10,0);
+              summon(3.1,11,0);
+              summon(3.1,12,0);
+              summon(3.1,13,0);
+              summon(3.1,14,0);
+              summon(3.1,15,0);
+              summon(3.1,16,0);
+              break
+            case 24:
+              summon(3.1,17,0);
+              summon(3.1,19,0);
+              summon(3.1,21,0);
+              summon(3.1,23,0);
+              break
+            case 25:
+              summon(3.3,0,0);
+              break
+            case 30:
+              entity[i][4] = 0;
+              break
+          }
         }
       }
     }
@@ -1843,21 +2078,31 @@ function win(){
         }
       }
       else if (particle[i][0]==10){
-        particle[i][1]+=1;
-        if (particle[i][1]<=40){
+        if (gameState == false){
           click = false;
-          ctx.fillStyle = "#00e677";
+          particle.splice(i,1);
+          gameState = false;
+          dying = false;
+        }
+        particle[i][1]+=1;
+        if (particle[i][1]<=1){
+          color1 = colors[getRandomInt(5)-1];
+          color2 = colors[getRandomInt(5)-1];
+        }
+        else if (particle[i][1]<=40){
+          click = false;
+          ctx.fillStyle = color1;
           ctx.fillRect(0,0,px,particle[i][1]*py/20);
-          ctx.fillStyle = "#d81b60";
+          ctx.fillStyle = color2;
           ctx.fillRect(px,2*py-particle[i][1]*py/20,px,2*py);
           ctx.fillStyle = "#ffffff";
           ctx.fillRect(px-particle[i][1]*(px-50)/40,py-particle[i][1]*(py-50)/40,particle[i][1]*(px-50)/20,particle[i][1]*(py-50)/20);
         }
         else if (particle[i][1]<=65){
           click = false;
-          ctx.fillStyle = "#00e677";
+          ctx.fillStyle = color1;
           ctx.fillRect(0,0,px,2*py);
-          ctx.fillStyle = "#d81b60";
+          ctx.fillStyle = color2;
           ctx.fillRect(px,0,px,2*py);
           ctx.fillStyle = "#ffffff";
           ctx.fillRect(50,50,2*px-100,2*py-100);
@@ -1872,90 +2117,51 @@ function win(){
         }
         else if (particle[i][1]<=90){
           click = false;
-          ctx.fillStyle = "#00e677";
+          ctx.fillStyle = color1;
           ctx.fillRect(0,0,px,2*py);
-          ctx.fillStyle = "#d81b60";
+          ctx.fillStyle = color2;
           ctx.fillRect(px,0,px,2*py);
           ctx.fillStyle = "#ffffff";
           ctx.fillRect(50,50,2*px-100,2*py-100);
           ctx.fillStyle = "#000000";
-          ctx.font = 50+"px Impact";
-          if(gameState == 'death'){
-            ctx.fillText("YOU DIED",px-90,150);
-          }
-          else if (gameState == 'win'){
-            ctx.fillText("Level Complete",px-160,150);
-          }
-          ctx.font = "30px audiowide";
-          ctx.fillText("Best Time: "+secToTime(bestTime[level-2]),(particle[i][1]-65)*px/25-150,200);
-          ctx.fillText("Time: "+secToTime(timer[level-2]),(particle[i][1]-90)*px/25-115,250);
+          timeStroke((particle[i][1]-65)*px/25,(particle[i][1]-90)*px/25,(particle[i][1]-115)*px/25);
         }
         else if (particle[i][1]<=115){
           click = false;
-          ctx.fillStyle = "#00e677";
+          ctx.fillStyle = color1;
           ctx.fillRect(0,0,px,2*py);
-          ctx.fillStyle = "#d81b60";
+          ctx.fillStyle = color2;
           ctx.fillRect(px,0,px,2*py);
           ctx.fillStyle = "#ffffff";
           ctx.fillRect(50,50,2*px-100,2*py-100);
           ctx.fillStyle = "#000000";
-          ctx.font = 50+"px Impact";
-          if(gameState == 'death'){
-            ctx.fillText("YOU DIED",px-90,150);
-          }
-          else if (gameState == 'win'){
-            ctx.fillText("Level Complete",px-160,150);
-          }
-          ctx.font = "30px audiowide";
-          ctx.fillText("Best Time: "+secToTime(bestTime[level-2]),px-150,200);
-          ctx.fillText("Time: "+secToTime(timer[level-2]),(particle[i][1]-90)*px/25-115,250);
-          ctx.fillText("(Click to continue)",(particle[i][1]-115)*px/25-150,py*2-150);
+          timeStroke(px,(particle[i][1]-90)*px/25,(particle[i][1]-115)*px/25);
         }
         else if (particle[i][1]<=140){
           click = false;
-          ctx.fillStyle = "#00e677";
+          ctx.fillStyle = color1;
           ctx.fillRect(0,0,px,2*py);
-          ctx.fillStyle = "#d81b60";
+          ctx.fillStyle = color2;
           ctx.fillRect(px,0,px,2*py);
           ctx.fillStyle = "#ffffff";
           ctx.fillRect(50,50,2*px-100,2*py-100);
           ctx.fillStyle = "#000000";
-          ctx.font = 50+"px Impact";
-          if(gameState == 'death'){
-            ctx.fillText("YOU DIED",px-90,150);
-          }
-          else if (gameState == 'win'){
-            ctx.fillText("Level Complete",px-160,150);
-          }
-          ctx.font = "30px audiowide"
-          ctx.fillText("Best Time: "+secToTime(bestTime[level-2]),px-150,200);
-          ctx.fillText("Time: "+secToTime(timer[level-2]),px-115,250);
-          ctx.fillText("(Click to continue)",(particle[i][1]-115)*px/25-150,py*2-150);
+          timeStroke(px,px,(particle[i][1]-115)*px/25);
         }
         else if (particle[i][1]<=1000){
-          ctx.fillStyle = "#00e677";
+          ctx.fillStyle = color1;
           ctx.fillRect(0,0,px,2*py);
-          ctx.fillStyle = "#d81b60";
+          ctx.fillStyle = color2;
           ctx.fillRect(px,0,px,2*py);
           ctx.fillStyle = "#ffffff";
           ctx.fillRect(50,50,2*px-100,2*py-100);
           ctx.fillStyle = "#000000";
-          ctx.font = 50+"px Impact";
-          if(gameState == 'death'){
-            ctx.fillText("YOU DIED",px-90,150);
-          }
-          else if (gameState == 'win'){
-            ctx.fillText("Level Complete",px-160,150);
-          }
-          ctx.font = "30px audiowide"
-          ctx.fillText("Best Time: "+secToTime(bestTime[level-2]),px-150,200);
-          ctx.fillText("Time: "+secToTime(timer[level-2]),px-115,250);
-          ctx.fillText("(Click to continue)",px-150,py*2-150);
+          timeStroke(px,px,px);
           if (click == true){
             click = false;
             particle.splice(i,1);
             gameState = false;
-            dying = false;
+            //dying = false;
             //smtoken -= 1;
           }
         }
@@ -1963,7 +2169,7 @@ function win(){
           click = false;
           particle.splice(i,1);
           gameState = false;
-          dying = false;
+          //dying = false;
         }
       }
     }
@@ -2028,6 +2234,25 @@ function win(){
     }
   }
   
+  function timeStroke(あ,い,う,other){
+    if (other){
+
+    }
+    else {
+      ctx.font = 50+"px Impact";
+      if(gameState == 'death'){
+        ctx.fillText("YOU DIED",px-90,150);
+      }
+      else if (gameState == 'win'){
+        ctx.fillText("Level Complete",px-160,150);
+      }
+      ctx.font = "30px audiowide";
+      ctx.fillText("Best Time: "+secToTime(bestTime[level-2]),あ-150,200);
+      ctx.fillText("Time: "+secToTime(timer[level-2]),い-115,250);
+      ctx.fillText("(Click to continue)",う-150,py*2-150);
+    }
+  }
+
   function drawPlayer(varx,vary,typez){
     ctx.fillStyle = "hsla("+(typez*190)%260+",100%,50%)";
     ctx.fillRect(varx,vary,25,25);
@@ -2045,43 +2270,50 @@ function win(){
   
   function keyUpdate(){
     if (map[68] || map[39]){
-      if (velocity2 < run && dying == false){
+      if (velocity2 < run){
         velocity2 += 0.1;
       }
       look = 'right';
     }
     else if (map[65] || map[37]){
-      if (velocity2 > -1*run && dying == false){
+      if (velocity2 > -1*run){
         velocity2 -= 0.1;
       }
       look = 'left';
     }
     else{
-      if (gameState == 'play'){
-        if (velocity2 < -0.075){
-          velocity2 += 0.15;
+      if (velocity2 < -0.075){
+        velocity2 += 0.15;
+      }
+      else if (velocity2 > 0.075){
+        velocity2 -= 0.15;
+      }
+      else {
+        velocity2 = 0;
+      }
+    }
+    if (gameState == 'play'){
+      if (dying == false){lx+=velocity2;}
+      if (attack == 0 &&(map[83] || map[40])){
+        if (attackType == 1){
+          summon(-1,0,0,0);
+          attack += 10;//80
         }
-        else if (velocity2 > 0.075){
-          velocity2 -= 0.15;
-        }
-        else {
-          velocity2 = 0;
+        if (attackType == 2){
+          summon(-2,0,0,0);
+          attack += 80;
         }
       }
     }
-    lx+=velocity2;
     if ((map[87] || map[38])&& falling == false){
       velocity = jump;
     }
-    if (attack == 0 &&(map[83] || map[40])){
-      if (attackType == 1){
-        summon(-1,0,0,0);
-        attack += 10;//80
-      }
-      else if (attackType == 2){
-        summon(-2,0,0,0);
-        attack += 80;
-      }
+
+    if (map[81]){
+      attackType = 1
+    }
+    if (map[69]){
+      attackType = 2
     }
   }
   
@@ -2367,7 +2599,6 @@ function win(){
           if (100 > i*110+50+110*newLevelS-x && i*110+50+110*newLevelS-x > 0 && -140 < 270-y && 270-y < 0 && (newLock[i-1] == 1 || newLock[i-1] == 2)){
             if (newLock[i-1] == 2){
               createNewLevel();
-              console.log('hi');
             }
             else{
               lx = 0-window.innerWidth/2;
@@ -2625,6 +2856,15 @@ function win(){
     else if (type == 3.2){
       entity.push([3.2,varx,vary,i]);
     }
+    else if (type == 3.3){
+      entity.push([3.3,varx,vary,i]);
+    }
+    else if (type == 4){
+      entity.push([4,0,(-50)*vary+85*zy,0,0,1000])
+    }
+    else if (type == 5){
+      entity.push([5,0,0,0,0,500])
+    }
     else if (type == -1){
       entity.push([-1,lx+px,ly+py,i]);
     }
@@ -2703,3 +2943,14 @@ function clearLocalStorage(){
   localStorage.removeItem('genLock');
   location.reload();
 }
+
+/*let socket = new WebSocket("wss://10.120.33.216:53333/?name=username");
+// Connection opened
+socket.addEventListener('open', (event) => {
+    socket.send('Hello Server!');
+});
+
+// Listen for messages
+socket.addEventListener('message', (event) => {
+    console.log('Message from server ', event.data);
+});*/

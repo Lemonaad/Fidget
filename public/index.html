@@ -12,16 +12,16 @@
     <audio src="music/Fidget_FieldsOfSpace.mp3" id="mfos"></audio>
     <audio src="music/Fidget_Timeless.mp3" id="mtl"></audio>
     
-    <div id="screen" class="screen">
+    <div crossorigin="anonymous" id="screen" class="screen">
       <canvas crossorigin="anonymous" id='canvas' width='body.clientWidth' height='650' ></canvas>
     </div>
 
     <div id="homePage" class="homePage">
           <button class="sb a active" onclick="tabs(event, 1)">Fight</button>
           <button class="sb b" onclick="tabs(event, 2)">Idle</button>
-          <button class="sb c" onclick="tabs(event, 3)">Gravity</button>
-          <button class="sb d" onclick="tabs(event, 2)">Edit</button>
-          <button class="sb e" onclick="tabs(event, 1)">Time</button>
+          <button class="sb c" onclick="tabs(event, 4)">Gravity</button>
+          <button class="sb d" onclick="tabs(event, 5)">Edit</button>
+          <button class="sb e" onclick="tabs(event, 6)">Time</button>
 
       <div id="optionsscreen" class="optionsscreen">
         <label class="switch swa">
@@ -41,13 +41,16 @@
         </label>
       </div>
       
-      <div id="playscreen" class="playscreen">
-      <button class="skill right arrow" id="skillRight" onclick="arrows('skillRight')"><img src="assets/home/right-arrow.png" /></button>
-      <button class="skill left arrow"id="skillLeft" onclick="arrows('skillLeft')"><img src="assets/home/left-arrow.png" /></button>
-      <button class="new right arrow" id="skillRight" onclick="arrows('newRight')"><img src="assets/home/right-arrow.png" /></button>
-      <button class="new left arrow"id="skillLeft" onclick="arrows('newLeft')"><img src="assets/home/left-arrow.png" /></button>
-      <button id="devMode" class="devMode" onClick="devModeClick()" >New Level </button>
-        </div>
+      <div id="timescreen" class="timescreen">
+        <button class="time right arrow" id="skillRight" onclick="arrows('skillRight')"><img src="assets/home/Right-arrow.png" /></button>
+        <button class="time left arrow"id="skillLeft" onclick="arrows('skillLeft')"><img src="assets/home/Left-arrow.png" /></button>
+      </div>
+      <div id="editscreen" class="editscreen">
+        <button class="edit right arrow" id="skillRight" onclick="arrows('newRight')"><img src="assets/home/Right-arrow.png" /></button>
+        <button class="edit left arrow"id="skillLeft" onclick="arrows('newLeft')"><img src="assets/home/Left-arrow.png" /></button>
+        <button id="createLevel" class="createLevel" onClick="createNewLevel()" >New Level </button>
+      </div>
+
       
     </div>
     
