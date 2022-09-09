@@ -2294,7 +2294,7 @@ function win(){
     }
     if (gameState == 'play'){
       if (dying == false){lx+=velocity2;}
-      if (attack == 0 &&(map[83] || map[40])){
+      if (attack == 0 &&(map[83] || map[40] || map[32])){
         if (attackType == 1){
           summon(-1,0,0,0);
           attack += 10;//80
